@@ -20,7 +20,7 @@
       "testTsconfig": "../../../tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -28,6 +28,12 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
+    },
+    {
+      "name": "ui",
+      "root": "libs/ui/src",
+      "test": "../../../test.js",
+      "appRoot": ""
     }
   ],
   "e2e": {
@@ -52,7 +58,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {
       "inlineStyle": true,
       "inlineTemplate": true
