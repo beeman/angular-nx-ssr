@@ -9,15 +9,21 @@
     "build:web": "ng build --prod --app=web",
     "build:server": "ng build --prod --app=server --output-hashing=false",
     "postbuild:server": "webpack --config webpack.server.config.js --progress --colors",
-
-    "serve:ssr": "node dist/apps/server/server",
-
+    "docker:build": "docker build -t beeman/angular-nx-ssr:latest .",
+    "docker:run": "docker run -it -p 4000:4000 --name angular-nx-ssr --rm beeman/angular-nx-ssr:latest",
+    "now:deploy": "now --docker",
+    "now:alias": "now alias",
+    "now": "npm run now:deploy && npm run now:alias",
+    "serve": "node dist/apps/server/server",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "format": "prettier --single-quote --print-width 120 --write \"{apps,libs}/**/*.ts\""
   },
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
   "dependencies": {
     "@angular/animations": "5.0.0",
     "@angular/common": "5.0.0",
@@ -64,6 +70,12 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
-    "typescript": "^2.4.2"
+    "typescript": "2.4.2"
+  },
+  "now": {
+    "name": "angular-nx-ssr",
+    "alias": [
+      "angular-nx-ssr"
+    ]
   }
 }
