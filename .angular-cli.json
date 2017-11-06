@@ -30,6 +30,12 @@
       }
     },
     {
+      "name": "pages",
+      "root": "libs/pages/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
       "name": "ui",
       "root": "libs/ui/src",
       "test": "../../../test.js",

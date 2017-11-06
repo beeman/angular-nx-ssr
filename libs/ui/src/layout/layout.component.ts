@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
       <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
-  `,
+  `
 })
 export class LayoutComponent {}
