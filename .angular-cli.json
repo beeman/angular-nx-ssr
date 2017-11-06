@@ -52,15 +52,18 @@
     }
   },
   "defaults": {
+    "styleExt": "css",
+    "component": {
+      "inlineStyle": true,
+      "inlineTemplate": true
+    },
     "schematics": {
       "collection": "@nrwl/schematics",
-      "postGenerate": "npm run format",
       "newProject": [
         "app",
         "lib"
-      ]
-    },
-    "styleExt": "css",
-    "component": {}
+      ],
+      "postGenerate": "npm run format"
+    }
   }
 }
