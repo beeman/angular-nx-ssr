@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, VERSION } from '@angular/core';
 
 @Component({
   selector: 'app-about',
   template: `
     <h2>About</h2>
-    <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-    <p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-    <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
-    <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
-    <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-    <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    <p *ngFor="let line of lines" [class]="line.class" [innerHtml]="line.text"></p>
   `
 })
 export class AboutComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  lines = [
+    { class: 'text-primary', text: 'This project brings together a lot of good stuff:' },
+    { class: 'text-muted', text: 'The repository is structured using <a href="https://github.com/nrwl/nx">@nrwl/nx</a>' },
+    { class: 'text-info', text: `This app runs on <a href="https://angular.io/">Angular v${VERSION.full}</a>` },
+    { class: 'text-success', text: `Server Side Rendering by <a href="https://github.com/angular/universal">Angular Universal</a>` },
+    { class: 'text-warning', text: `Support for running in a <a href="https://docker.io">Docker</a> container` },
+    { class: 'text-danger', text: `Support for hosting on <a href="https://docker.io">now.sh</a>` },
+  ]
 }
