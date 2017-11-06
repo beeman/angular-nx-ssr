@@ -28,11 +28,11 @@ import { Component } from '@angular/core';
         <button type="submit" class="btn btn-primary">Send</button>
       </fieldset>
     </form>
-  `,
+  `
 })
 export class ContactComponent {
   submit($event) {
     $event.preventDefault();
-    window.alert('Sending the form is not implemented!')
+    window.alert('Sending the form is not implemented!');
   }
 }

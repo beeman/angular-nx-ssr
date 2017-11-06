@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, isDevMode, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   template: `    
     <nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
       <div class="navbar-text m-auto">
-        <i class="fa fa-heart"></i>
+        Built with <i class="fa fa-heart"></i> by beeman
+      </div>
+      <div class="navbar-text m-0" *ngIf="devMode">
+        <i class="fa fa-bug" title="Development Mode Enabled"></i>
       </div>
     </nav>
   `,
@@ -17,4 +20,11 @@ import { Component } from '@angular/core';
   `
   ]
 })
-export class FooterComponent {}
+export class FooterComponent implements OnInit {
+  public devMode: boolean = false
+  ngOnInit() {
+    if (isDevMode()) {
+      this.devMode = isDevMode()
+    }
+  }
+}
