@@ -33,11 +33,11 @@
       "name": "server",
       "root": "apps/web/src",
       "outDir": "dist/apps/server",
-      "platform": "server",
       "assets": [
         "assets",
         "favicon.ico"
       ],
+      "platform": "server",
       "index": "index.html",
       "main": "main.server.ts",
       "test": "../../../test.js",
@@ -54,18 +54,17 @@
         "prod": "environments/environment.prod.ts"
       }
     },
-
     {
       "name": "pages",
+      "appRoot": "",
       "root": "libs/pages/src",
-      "test": "../../../test.js",
-      "appRoot": ""
+      "test": "../../../test.js"
     },
     {
       "name": "ui",
+      "appRoot": "",
       "root": "libs/ui/src",
-      "test": "../../../test.js",
-      "appRoot": ""
+      "test": "../../../test.js"
     }
   ],
   "e2e": {
