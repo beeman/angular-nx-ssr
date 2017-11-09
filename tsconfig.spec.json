@@ -4,22 +4,12 @@
     "outDir": "./out-tsc/spec",
     "module": "commonjs",
     "target": "es5",
-    "types": [
-      "jasmine",
-      "node"
-    ],
+    "types": ["jasmine", "node"],
     "baseUrl": ".",
     "paths": {
-      "@angular-nx-ssr/*": [
-        "libs/*"
-      ]
+      "@angular-nx-ssr/*": ["libs/*"]
     }
   },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "tmp"]
 }

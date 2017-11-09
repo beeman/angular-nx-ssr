@@ -5,23 +5,18 @@
   },
   "apps": [
     {
-      "name": "web",
+      "name": "server",
       "root": "apps/web/src",
-      "outDir": "dist/apps/web",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
+      "outDir": "dist/server",
+      "platform": "server",
+      "assets": ["assets", "favicon.ico"],
       "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
+      "main": "main.server.ts",
       "test": "../../../test.js",
-      "tsconfig": "../../../tsconfig.app.json",
+      "tsconfig": "../../../tsconfig.server.json",
       "testTsconfig": "../../../tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
-        "styles.scss"
-      ],
+      "styles": ["styles.scss"],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -30,23 +25,18 @@
       }
     },
     {
-      "name": "server",
+      "name": "web",
       "root": "apps/web/src",
-      "outDir": "dist/apps/server",
-      "platform": "server",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
+      "outDir": "dist/web",
+      "assets": ["assets", "favicon.ico"],
       "index": "index.html",
-      "main": "main.server.ts",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
       "test": "../../../test.js",
-      "tsconfig": "../../../tsconfig.server.json",
+      "tsconfig": "../../../tsconfig.app.json",
       "testTsconfig": "../../../tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
-        "styles.scss"
-      ],
+      "styles": ["styles.scss"],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -54,7 +44,12 @@
         "prod": "environments/environment.prod.ts"
       }
     },
-
+    {
+      "name": "notes",
+      "root": "libs/notes/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
     {
       "name": "pages",
       "root": "libs/pages/src",
@@ -97,10 +92,7 @@
     },
     "schematics": {
       "collection": "@nrwl/schematics",
-      "newProject": [
-        "app",
-        "lib"
-      ],
+      "newProject": ["app", "lib"],
       "postGenerate": "npm run format"
     }
   }

@@ -21,10 +21,10 @@ import { Component, isDevMode, OnInit } from '@angular/core';
   ]
 })
 export class FooterComponent implements OnInit {
-  public devMode: boolean = false
+  public devMode: boolean = false;
   ngOnInit() {
     if (isDevMode()) {
-      this.devMode = isDevMode()
+      this.devMode = isDevMode();
     }
   }
 }

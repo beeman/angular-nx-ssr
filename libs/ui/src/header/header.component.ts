@@ -13,6 +13,10 @@ import { Component } from '@angular/core';
             </a>
           </li>
         </ul>
+        <ul class="navbar-nav">
+          <li><a class="nav-link" href="/en/">EN</a></li>
+          <li><a class="nav-link" href="/es/">ES</a></li>
+        </ul>
       </div>
     </nav>
   `
@@ -21,6 +25,7 @@ export class HeaderComponent {
   public title = 'NX Demo';
   public links = [
     { label: 'Home', url: '/home' },
+    { label: 'Notes', url: '/notes' },
     { label: 'About', url: '/about' },
     { label: 'Contact', url: '/contact' }
   ];

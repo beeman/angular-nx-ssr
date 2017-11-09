@@ -6,7 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    children: [{ path: '', loadChildren: '../../../../libs/pages/src/pages.module#PagesModule' }]
+    children: [
+      { path: '', loadChildren: '../../../../libs/pages/src/pages.module#PagesModule' },
+      { path: 'notes', loadChildren: '../../../../libs/notes/src/notes.module#NotesModule' }
+    ]
   }
 ];
 

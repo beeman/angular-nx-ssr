@@ -1,0 +1,38 @@
+{
+  "global": {
+    "locales": {
+      "en": "English",
+      "es": "Español"
+    }
+  },
+  "apps": {
+    "api": {
+      "config": {
+        "port": 3000
+      },
+      "datasources": {
+        "db": {
+          "name": "db",
+          "connector": "memory",
+          "file": "./db.json"
+        }
+      }
+    },
+    "web": {
+      "environment": {
+        "production": {
+          "api": {
+            "baseUrl": "/",
+            "version": "api"
+          }
+        },
+        "development": {
+          "api": {
+            "baseUrl": "http://localhost:3000/",
+            "version": "api"
+          }
+        }
+      }
+    }
+  }
+}

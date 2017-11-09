@@ -5,17 +5,10 @@
     "module": "commonjs",
     "baseUrl": ".",
     "paths": {
-      "@angular-nx-ssr/*": [
-        "libs/*"
-      ]
+      "@angular-nx-ssr/*": ["libs/*"]
     }
   },
-  "exclude": [
-    "**/*.spec.ts",
-    "**/*.e2e-spec.ts",
-    "node_modules",
-    "tmp"
-  ],
+  "exclude": ["**/*.spec.ts", "**/*.e2e-spec.ts", "node_modules", "tmp"],
   "angularCompilerOptions": {
     "entryModule": "./apps/web/src/app/app.server.module#AppServerModule"
   }

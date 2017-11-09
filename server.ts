@@ -1,20 +1,37 @@
-import * as express from 'express';
-import { join } from 'path';
-import { angularSsr } from './angular-ssr'
+import 'zone.js/dist/zone-node'
+import 'reflect-metadata'
 
-const app = express();
-const PORT = process.env.PORT || 4000;
+import * as express from 'express'
 
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(`./dist/apps/server/main.bundle`);
+const router = express.Router()
 
-const options = {
-  appRoot: (file = '') => join(process.cwd(), 'dist', 'apps', 'web', file),
-  appServerModule: AppServerModuleNgFactory,
-  moduleMap: LAZY_MODULE_MAP,
+import { ngExpressEngine } from '@nguniversal/express-engine'
+const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader')
+
+import { join } from 'path'
+
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(`./main.bundle`)
+
+const appRoot = (file = '') => join(process.cwd(), 'dist', 'apps', 'web', file)
+
+
+export const server = (req, res) => {
+  const app = req.app
+
+  app.engine('html', ngExpressEngine({
+    bootstrap: AppServerModuleNgFactory,
+    providers: [
+      provideModuleMap(LAZY_MODULE_MAP)
+    ]
+  }))
+
+  app.set('view engine', 'html')
+
+  app.set('views', appRoot())
+
+  // Server static files from /browser
+  router.get('*.*', express.static(appRoot()))
+
+  // All regular routes use the Universal engine
+  router.get('*', (req = '', res) => res.render(appRoot('index.html'), { req }))
 }
-
-angularSsr(app, options)
-
-app.listen(PORT, () => {
-  console.log(`Node server listening on http://localhost:${PORT}`);
-});
